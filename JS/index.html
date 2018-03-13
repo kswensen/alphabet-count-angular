@@ -4,17 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Alphabet Counter</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body ng-controller="mainCtrl">
-    <div>
-        <input type="text" ng-model="string"></input>
-        <button ng-click="countAlphabet(string)">Submit</button>
-        <button ng-click="reset(string)">Reset</button>
+    <div class="header">
+        <h4>Alphabet Counter</h4>
     </div>
-
-    <div ng-repeat="(key, value) in counts">
-        {{key}} : {{value}}
+    <div class="search">
+        <input type="text" ng-model="string"></input>
+        <button class="submitButton" ng-click="countAlphabet(string)">Submit</button>
+        <button class="resetButton" ng-click="reset(string)">Reset</button>
+    </div>
+    <div class="body">
+        <div class="tiles" ng-repeat="(key, value) in counts">
+            <h1>{{key.toUpperCase()}}</h1>
+            <h4>{{value}}</h4>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js" charset="UTF-8"></script>

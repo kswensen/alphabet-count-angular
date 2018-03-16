@@ -11,9 +11,10 @@
 <body ng-controller="mainCtrl">
     <div class="header">
         <h4>Alphabet Counter</h4>
+        <p>Coded in Angular</p>
     </div>
     <div class="search">
-        <input type="text" ng-model="string"></input>
+        <textarea type="text" ng-model="string"></textarea>
         <button class="submitButton" ng-click="countAlphabet(string)">Submit</button>
         <button class="resetButton" ng-click="reset(string)">Reset</button>
     </div>

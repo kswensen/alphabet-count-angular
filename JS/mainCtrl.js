@@ -5,8 +5,12 @@ angular.module('alphabetCounter').controller('mainCtrl', function ($scope) {
             if ($scope.counts.hasOwnProperty(letter)) {
                 $scope.counts[letter]++
             } else {
-                if(letter === " "){
-                    $scope.counts = Object.assign({}, $scope.counts, {"Space" : 1});
+                if (letter === " ") {
+                    if ($scope.counts.hasOwnProperty("Space")) {
+                        $scope.counts["Space"]++;
+                    } else {
+                        $scope.counts = Object.assign({}, $scope.counts, { "Space": 1 });
+                    }
                 } else {
                     $scope.counts[letter] = 1;
                 }
@@ -15,9 +19,9 @@ angular.module('alphabetCounter').controller('mainCtrl', function ($scope) {
         return $scope.counts;
     }
     $scope.reset = function (string) {
-        for(count in $scope.counts){
-            if(!count.match(/^[!@#\s\$%\^\&*\)\(+=,:;'" ._-]+$/g)){
-                if(count === 'Space'){
+        for (count in $scope.counts) {
+            if (!count.match(/^[!@#\s\$%\^\&*\)\(+=,:;'"? ._-]+$/g)) {
+                if (count === 'Space') {
                     delete $scope.counts[count];
                 } else {
                     $scope.counts[count] = 0;
